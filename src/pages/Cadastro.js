@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { TextInput, KeyboardAvoidingView, View, TouchableOpacity, StyleSheet,
-         Image, Text, Platform, StatusBar, ActivityIndicator } from 'react-native';
+import { TextInput, KeyboardAvoidingView, TouchableOpacity, StyleSheet,
+        Text, Platform, StatusBar, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components';
 import { AuthContext } from '../contexts/auth';

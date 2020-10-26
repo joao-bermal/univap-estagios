@@ -1,20 +1,21 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { View, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, Text, Linking } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { StatusBar, ScrollView, View, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, Text } from 'react-native';
 import firebase from '../services/firebaseConnection';
 import Listagem from './Listagem';
 import { AuthContext } from '../contexts/auth';
+import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 
 console.disableYellowBox = true;
 
 export default function App(){
-  const navigation = useNavigation();
   const [propostas, setPropostas] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user, sair } = useContext(AuthContext);
+  const { sair } = useContext(AuthContext);
+  const navigation = useNavigation();
 
   useEffect(()=> {
-
     async function select(){
       await firebase.database().ref('propostas').on('value', (snapshot)=> {
         setPropostas([]);
@@ -30,10 +31,8 @@ export default function App(){
             email: chilItem.val().email,
             data: chilItem.val().data,
           };
-
           setPropostas(oldArray => [...oldArray, data].reverse());
         })
-
         setLoading(false);
       })
     }
@@ -42,51 +41,74 @@ export default function App(){
   }, []);
 
   return(
-    <View style={styles.container}>
-      {loading ? 
-      (
-        <ActivityIndicator color="#121212" size={45} />
-      ) :
-      (
-        <FlatList
-          keyExtractor={item => item.key}
-          data={propostas}
-          renderItem={ ({item}) => ( <Listagem data={item} /> )  }
-        />
-      )
-      }
-      <TouchableOpacity onPress={() => Linking.openURL('mailto:support@example.com') }
-        title="support@example.com">
-          <Text>OI</Text>
-      </TouchableOpacity>
-      <TouchableOpacity 
-        style={styles.button} 
-        onPress={ sair }
-      >
-        <Text style={styles.buttonText}>Voltar</Text>
-      </TouchableOpacity>
-    </View>
+    <>
+      <StatusBar backgroundColor="transparent" barStyle="light-content" translucent={true}/>
+      <View style={styles.areaView}>
+        <Container>
+          <ButtonMenu onPress={ () => navigation.toggleDrawer() }>
+            <Icon name="menu" color="#FFF" size={30} />
+          </ButtonMenu>
+        </Container>
+        <ScrollView>
+          <View style={{alignItems: 'center'}}>
+            {loading ? 
+            (
+              <ActivityIndicator color="#121212" size={45} />
+            ) :
+            (
+              <FlatList
+                keyExtractor={item => item.key}
+                data={propostas}
+                renderItem={ ({item}) => ( <Listagem data={item} /> ) }
+              />
+            )
+            }
+          </View>
+          <View style={{alignItems: 'center'}}>
+            {loading ? 
+            (
+              <ActivityIndicator color="#121212" size={45} />
+            ) :
+            (
+              <FlatList
+                keyExtractor={item => item.key}
+                data={propostas}
+                renderItem={ ({item}) => ( <Listagem data={item} /> ) }
+              />
+            )
+            }
+          </View>
+        </ScrollView>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={ sair }
+        >
+          <Text style={styles.buttonText}>Voltar</Text>
+        </TouchableOpacity>
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  container:{
+  areaView:{
     flex: 1,
     backgroundColor: '#00488B',
-    padding: 25
-  },
-  button: {
-    height: 54,
-    alignSelf: 'stretch',
-    backgroundColor: '#00488B',
-    borderRadius: 6,
-    marginTop: 15,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  buttonText: {
-    color: '#FFF',
-    fontWeight: 'bold',
-    fontSize: 16,
+    padding: 5,
+    justifyContent: 'flex-start',
   }
 });
+
+const Container = styled.View`
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 30px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+  background-color: #00488B;
+`;
+
+const ButtonMenu = styled.TouchableWithoutFeedback`
+  justify-content: center;
+  align-items: center;
+`;

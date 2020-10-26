@@ -9,13 +9,13 @@ function AppRoutes(){
   return(
     <AppDrawer.Navigator
       drawerStyle={{
-        //backgroundColor: '#',
+        backgroundColor: '#00488B',
       }}
       drawerContentOptions={{
         labelStyle: {
           fontWeight: "bold",
         },
-        //activeTintColor: '#',
+        activeTintColor: '#FFF',
         //activeBackgroundColor: '#',
         //inactiveBackgroundColor: '#',
         //inactiveTintColor: '#',
