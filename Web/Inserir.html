@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Estágios</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+		console.log(window.location.href);		
+		var resultado = window.location.href.split("&");
+		var uid =  resultado[1];
+		alert (resultado[1]);
+		if(resultado[1] !== 'aENQQzRQdzU0bVFJWFUyQXBGRzdYVjNXbHFyMg==')
+		{
+			window.location.href = 'index.html';
+		}
+	</script>
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/icon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/insert.css">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<!--<div class="col-md-12 d-flex justify-content-center">
+			<button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Administrador</button>
+			<button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Inserir</button>
+			<button type="button" class="btn btn-outline-black waves-effect filter" data-rel="3">Excluir</button>
+		</div>
+	-->
+
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+            
+                <label>Empresa</label> 
+				<div class="wrap-input100 validate-input">
+				    <input class="input100" type="text" name="Empresa" id="Empresa" placeholder="Nome da empresa">
+				    <span class="focus-input100-1"></span>
+				    <span class="focus-input100-2"></span>
+				</div>
+				<br>
+				<label>Curso</label> 
+				<div class="wrap-input100 validate-input">
+					<select name="Curso" id="Curso" class="validate-input wrap-input100">
+						<option value="">Escolha o curso referente à proposta</option>
+						<option value="Administração">Administração</option>
+						<option value="Análises Clínicas">Análises Clínicas</option>
+						<option value="Eletrônica">Eletrônica</option>
+						<option value="Informática">Informática</option>
+						<option value="Publicidade">Publicidade</option>
+						<option value="Química">Química</option>
+					</select>
+					<span class="focus-input100-1"></span>
+					<span class="focus-input100-2"></span>
+				</div>
+				<br>
+					<label>Descrição</label>
+				<div class="wrap-input100 validate-input">
+					<textarea class="inputArea input100" placeholder="Descrição sobre o cargo" type="text" name="Descricao" id="Descricao" ></textarea>
+				    <span class="focus-input100-1"></span>
+				    <span class="focus-input100-2"></span>
+				</div>
+				<br>
+					<label>Requisitos</label>
+				<div class="wrap-input100 validate-input">
+					<textarea class="inputArea input100" placeholder="Requisitos" type="text" name="Requisitos" id="Requisitos" ></textarea>
+				    <span class="focus-input100-1"></span>
+				    <span class="focus-input100-2"></span>
+				</div>
+				<br>
+					<label>Salário</label>
+				<div class="wrap-input100 validate-input">
+				    <input class="input100" type="text" name="Salario" id="Salario" placeholder="Salário">
+				    <span class="focus-input100-1"></span>
+				    <span class="focus-input100-2"></span>
+				</div>
+				<br>
+					<label>Link</label>
+				<div class="wrap-input100 validate-input">
+				    <input class="input100" type="text" name="Link" id="Link" placeholder="Link da proposta">
+				    <span class="focus-input100-1"></span>
+				    <span class="focus-input100-2"></span>
+				</div>
+                <br>
+                    <label>Email</label>
+				<div class="wrap-input100 validate-input">
+				    <input class="input100" type="text" name="Email" id="Email" placeholder="Email">
+				    <span class="focus-input100-1"></span>
+				    <span class="focus-input100-2"></span>
+				</div>
+				<br>
+					<label>Data</label>
+				<div class="wrap-input100 validate-input">
+				    <input class="input100" type="text" name="Data" id="Data" placeholder="Data limite da inscrição na vaga">
+				    <span class="focus-input100-1"></span>
+				    <span class="focus-input100-2"></span>
+				</div>
+
+				<div class="container-login100-form-btn m-t-20">
+				    <button class="login100-form-btn" onclick="cadastrarEmpresa()">
+				        Enviar
+					</button>
+                    <div class="container">
+						
+				    </div>
+					<button class="login100-form-btn" onclick="Limpar()">
+				        Limpar
+				    </button>
+				</div>
+                
+			</div>
+		</div>
+	</div>
+    
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyD0UHW_KP6uLGf9M-8PWj2J0X0wyDpwvEI",
+            authDomain: "estagios-5ff5e.firebaseapp.com",
+            databaseURL: "https://estagios-5ff5e.firebaseio.com",
+            projectId: "estagios-5ff5e",
+            storageBucket: "estagios-5ff5e.appspot.com",
+            messagingSenderId: "295405462090",
+            appId: "1:295405462090:web:f636d73abd7d81f31dbcb3",
+            measurementId: "G-YBTFVC6LM7"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        var refCadastro = firebase.database().ref("propostas");
+
+        function cadastrarEmpresa(){
+            var empresa = document.getElementById("Empresa").value;
+			var curso = document.getElementById("Curso").value
+            var descrição = document.getElementById("Descricao").value;
+			var requisitos = document.getElementById("Requisitos").value;
+            var salário = document.getElementById("Salario").value;
+            var link = document.getElementById("Link").value;
+            var email = document.getElementById("Email").value;
+            var data = document.getElementById("Data").value;
+			empresa= empresa.replace(/\s/g, '')
+			if(empresa !== '' & curso !== '' & descrição !== '' & requisitos !== '' & salário !== '' & link !== '' & email !== '' & data !== ''){
+				var resultado = refCadastro.push({
+					empresa: empresa,
+					curso: curso,
+					descrição: descrição,
+					requisitos: requisitos,
+					salário: salário,
+					link: link,
+					email: email,
+					data: data
+					
+				});
+				var resultado = window.location.href.split("&");
+				var uid =  resultado[1];
+				window.location.href = 'Administrador.html?uid&'+ uid;
+            	alert("Proposta cadastrada com sucesso!");
+			}else
+			{
+				alert("É necessário preencher todos os campos")
+			}
+        }
+    </script>
+    <script>
+        function Limpar(){
+            document.getElementById('Empresa').value='';
+			document.getElementById('Curso').value='';
+            document.getElementById('Descricao').value='';
+			document.getElementById('Requisitos').value='';
+            document.getElementById('Salario').value='';
+            document.getElementById('Link').value='';
+            document.getElementById('Email').value='';
+            document.getElementById('Data').value='';
+        }
+    </script>
+</body>
+</html>

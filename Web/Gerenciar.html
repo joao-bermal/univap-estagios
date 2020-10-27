@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Estágios</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+		console.log(window.location.href);		
+		var resultado = window.location.href.split("&");
+		var uid =  resultado[1];
+		alert (resultado[1]);
+		if(resultado[1] !== 'aENQQzRQdzU0bVFJWFUyQXBGRzdYVjNXbHFyMg==')
+		{
+			window.location.href = 'index.html';
+		}
+	</script>
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/icon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/Editar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<table border="1" style="width: 100%">
+					<tr>
+						<th> Empresa </th>  
+						<th> Curso </th>
+						<th> Descrição </th>
+						<th> Requisitos </th>
+						<th> Salário </th>
+						<th> Link </th>
+						<th> Email </th>
+						<th> Data </th>
+						<th> Excluir </th>                            
+					</tr>                         
+					<tbody border="1" id="table_body" style="width: 100%;">
+						
+						
+					</tbody>
+				</table>             
+			</div>
+		</div>
+	</div> 
+    
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-database.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyD0UHW_KP6uLGf9M-8PWj2J0X0wyDpwvEI",
+            authDomain: "estagios-5ff5e.firebaseapp.com",
+            databaseURL: "https://estagios-5ff5e.firebaseio.com",
+            projectId: "estagios-5ff5e",
+            storageBucket: "estagios-5ff5e.appspot.com",
+            messagingSenderId: "295405462090",
+            appId: "1:295405462090:web:f636d73abd7d81f31dbcb3",
+            measurementId: "G-YBTFVC6LM7"
+        };
+        firebase.initializeApp(firebaseConfig);
+		var vapo ="salve"
+        var refCadastro = firebase.database().ref("propostas");
+		//var adaRef = firebase.database().ref('users/ada');
+		//		adaRef.remove() 
+        function Buscar(){
+            refCadastro.on("child_added", snap=>{
+                var Empresa = snap.child("empresa").val();       
+                var Curso = snap.child("curso").val();       
+                var Descricao =snap.child("descrição").val();
+                var Requisitos =snap.child("requisitos").val();       
+                var Salario =snap.child("salário").val();        
+                var Link =snap.child("link").val();   
+                var Email =snap.child("email").val();
+                var Data =snap.child("data").val();           
+				var chave =String(snap.key);        				    
+                //Adiciona tudo em uma tabela
+                $('#table_body').append("<tr><td>"+ Empresa +"</td><td>"+ Curso + "</td><td>" + Descricao +"</td><td>" + Requisitos + "</td><td>" + Salario +"</td><td>"+ Link +"</td><td>" + Email + "</td><td>" + Data +"</td> <td><button class='btn' onclick='Excluir(value)' value='"+ chave +"'>X</button></td>  </tr>");
+				console.log(document.getElementById(chave).value);
+			});
+            alert("Propostas encontradas com sucesso!");
+        }
+        Buscar();
+
+		function Excluir(chavefire)
+		{
+			alert(chavefire);
+			String(chavefire);
+			refCadastro.child(chavefire).remove();
+			window.location.href = 'Administrador.html?uid&'+ uid;
+		}
+    </script>
+</body>
+</html>
