@@ -62,20 +62,6 @@ export default function App(){
             )
             }
           </View>
-          <View style={{alignItems: 'center'}}>
-            {loading ? 
-            (
-              <ActivityIndicator color="#121212" size={45} />
-            ) :
-            (
-              <FlatList
-                keyExtractor={item => item.key}
-                data={propostas}
-                renderItem={ ({item}) => ( <Listagem data={item} /> ) }
-              />
-            )
-            }
-          </View>
         </ScrollView>
       </View>
     </>

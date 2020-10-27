@@ -17,9 +17,10 @@ function AppRoutes(){
         labelStyle: {
           fontWeight: "bold",
         },
-        activeTintColor: '#FFF',
-        inactiveBackgroundColor: '#1C5D99',
-        inactiveTintColor: '#FFF',
+        activeTintColor: '#1C5D99',
+        activeBackgroundColor: '#FFF',
+        inactiveBackgroundColor: '#FFF',
+        inactiveTintColor: '#1C5D99',
         itemStyle: {
           marginVertical: 5,  
         }
