@@ -29,45 +29,47 @@ export default function Listagem({ data }){
             <ScrollView style={styles.whiteModalContainer}>
               <View style={styles.closeButton}>
                 <TouchableOpacity onPress={() => toggleModal()}>
-                  <Icon name="closecircleo" size={30} color="#00488B"/>
+                  <Icon name="left" size={25} color="#696969"/>
                 </TouchableOpacity>
               </View>
-              <View>
-                <Text style={styles.modalText1}>Empresa: </Text>       
-                <Text style={styles.modalText2}>{data.empresa}</Text>
-              </View>
-              <View>  
-                <Text style={styles.modalText1}>Curso: </Text>
-                <Text style={styles.modalText2}>{data.curso}</Text>
-              </View>
-              <View>
-                <Text style={styles.modalText1}>Descrição: </Text>
-                <Text style={styles.modalText2}>{data.descrição}</Text>
-              </View>
-              <View>
-                <Text style={styles.modalText1}>Requisitos: </Text>
-                <Text style={styles.modalText2}>{data.requisitos}</Text>
-              </View>
-              <View>
-                <Text style={styles.modalText1}>Salário: </Text>
-                <Text style={styles.modalText2}>R$ {data.salário}</Text>
-              </View>
-              <View>
-                <Text style={styles.modalText1}>Link: </Text>
-                <Text style={styles.modalText2}>{data.link}</Text>
-              </View>
-              <View>
-                <Text style={styles.modalText1}>Email: </Text>
-                <Text style={styles.modalText2}>{data.email}</Text>
-              </View>
-              <View>
-                <Text style={styles.modalText1}>Data: </Text>
-                <Text style={styles.modalText2}>{data.data}</Text>
-              </View>
-              <View style={{alignItems: 'center', justifyContent: 'center', marginBottom: 10, marginTop: 10}}>
-                <TouchableOpacity style={styles.openEmailButton} onPress={() => Linking.openURL(`mailto:${data.email}`) }>
-                  <Text style={styles.buttonText}>Abrir Email</Text>           
-                </TouchableOpacity>
+              <View style={{marginTop: 44}}>
+                <View>
+                  <Text style={styles.modalText1}>Empresa: </Text>       
+                  <Text style={styles.modalText2}>{data.empresa}</Text>
+                </View>
+                <View>  
+                  <Text style={styles.modalText1}>Curso: </Text>
+                  <Text style={styles.modalText2}>{data.curso}</Text>
+                </View>
+                <View>
+                  <Text style={styles.modalText1}>Descrição: </Text>
+                  <Text style={styles.modalText2}>{data.descrição}</Text>
+                </View>
+                <View>
+                  <Text style={styles.modalText1}>Requisitos: </Text>
+                  <Text style={styles.modalText2}>{data.requisitos}</Text>
+                </View>
+                <View>
+                  <Text style={styles.modalText1}>Salário: </Text>
+                  <Text style={styles.modalText2}>R$ {data.salário}</Text>
+                </View>
+                <View>
+                  <Text style={styles.modalText1}>Link: </Text>
+                  <Text style={styles.modalText2}>{data.link}</Text>
+                </View>
+                <View>
+                  <Text style={styles.modalText1}>Email: </Text>
+                  <Text style={styles.modalText2}>{data.email}</Text>
+                  <View style={styles.modalText2}>
+                    <TouchableOpacity onPress={() => Linking.openURL(`mailto:${data.email}`) }>
+                      <Icon name="mail" size={24} color="#00488B"/>           
+                    </TouchableOpacity>
+                  </View>
+                </View>
+                <View>
+                  <Text style={styles.modalText1}>Data: </Text>
+                  <Text style={styles.modalText2}>{data.data}</Text>
+                </View>
               </View>
             </ScrollView>
           </Modal>
@@ -88,7 +90,7 @@ export default function Listagem({ data }){
     else if (data.curso == "Eletrônica")
       setIcon(require('../assets/cursos/eletronica.png'));
     else if (data.curso == "Informática")
-      setIcon(require('../assets/cursos/informatica2.png'));
+      setIcon(require('../assets/cursos/informatica.png'));
     else if (data.curso == "Publicidade")
       setIcon(require('../assets/cursos/publicidade.png'));
     else if (data.curso == "Química")
@@ -122,7 +124,9 @@ export default function Listagem({ data }){
     },
     closeButton: {
       position: 'absolute',
-      right: 0,
+      marginTop: 15,
+      marginLeft: 8,
+      left: 0,
     },
     modalText1: {
       color: '#00488B',
@@ -192,7 +196,7 @@ export default function Listagem({ data }){
         </View>
       </View>
       <TouchableOpacity onPress={() => toggleModal()}>
-        <Icon name="right" size={22} color="#9999"/>
+        <Icon name="right" size={25} color="#696969"/>
       </TouchableOpacity>
     </View>   
     </>

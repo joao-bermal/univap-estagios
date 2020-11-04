@@ -7,7 +7,7 @@
 	<script>		
 		var resultado = window.location.href.split("&");
 		var uid =  resultado[1];
-		if(resultado[1] !== 'aENQQzRQdzU0bVFJWFUyQXBGRzdYVjNXbHFyMg==')
+		if(resultado[1] !== 'T21laUc3ek1tMVBHT2pWWlR1eDFETDV3Nlo0Mg==')
 		{
 			window.location.href = 'index.html';
 		}
@@ -36,12 +36,9 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-            
                 <label>Empresa</label> 
 				<div class="wrap-input100 validate-input">
 				    <input class="input100" type="text" name="Empresa" id="Empresa" placeholder="Nome da empresa">
@@ -51,8 +48,8 @@
 				<br>
 				<label>Curso</label> 
 				<div class="wrap-input100 validate-input">
-					<select name="Curso" id="Curso" class="validate-input wrap-input100">
-						<option value="">Escolha o curso referente à proposta</option>
+					<select name="Curso" id="Curso" class="input100" style="height: 70px; padding: 13px 20px 13px 25px">
+						<option value="" style="margin-left: 100px;" class="p-l-55">Escolha o curso referente à proposta</option>
 						<option value="Administração">Administração</option>
 						<option value="Análises Clínicas">Análises Clínicas</option>
 						<option value="Eletrônica">Eletrônica</option>
@@ -62,56 +59,56 @@
 					</select>
 				</div>
 				<br>
-					<label>Descrição</label>
+				<label>Descrição</label>
 				<div class="wrap-input100 validate-input">
-					<textarea class="inputArea input100" placeholder="Descrição sobre o cargo" type="text" name="Descricao" id="Descricao" ></textarea>
+					<textarea class="inputArea input100" placeholder="Descrição sobre o cargo" type="text" name="Descricao" id="Descricao" style="padding: 25px 20px 13px 25px"></textarea>
 				    <span class="focus-input100-1"></span>
 				    <span class="focus-input100-2"></span>
 				</div>
 				<br>
-					<label>Requisitos</label>
+				<label>Requisitos</label>
 				<div class="wrap-input100 validate-input">
-					<textarea class="inputArea input100" placeholder="Requisitos" type="text" name="Requisitos" id="Requisitos" ></textarea>
+					<textarea class="inputArea input100" placeholder="Requisitos necessário" type="text" name="Requisitos" id="Requisitos" style="padding: 25px 20px 13px 25px"></textarea>
 				    <span class="focus-input100-1"></span>
 				    <span class="focus-input100-2"></span>
 				</div>
 				<br>
-					<label>Salário</label>
+				<label>Salário</label>
 				<div class="wrap-input100 validate-input">
-				    <input class="input100" type="text" name="Salario" id="Salario" placeholder="Salário">
+				    <input class="input100" type="text" name="Salario" id="Salario" placeholder="Salário que será oferecido">
 				    <span class="focus-input100-1"></span>
 				    <span class="focus-input100-2"></span>
 				</div>
 				<br>
-					<label>Link</label>
+				<label>Link</label>
 				<div class="wrap-input100 validate-input">
 				    <input class="input100" type="text" name="Link" id="Link" placeholder="Link da proposta">
 				    <span class="focus-input100-1"></span>
 				    <span class="focus-input100-2"></span>
 				</div>
                 <br>
-                    <label>Email</label>
+                <label>Email</label>
 				<div class="wrap-input100 validate-input">
-				    <input class="input100" type="text" name="Email" id="Email" placeholder="Email">
+				    <input class="input100" type="text" name="Email" id="Email" placeholder="Email da Proposta">
 				    <span class="focus-input100-1"></span>
 				    <span class="focus-input100-2"></span>
 				</div>
 				<br>
-					<label>Data</label>
+				<label>Data</label>
 				<div class="wrap-input100 validate-input">
 				    <input class="input100" type="text" name="Data" id="Data" placeholder="Data limite da inscrição na vaga">
 				    <span class="focus-input100-1"></span>
 				    <span class="focus-input100-2"></span>
 				</div>
-
+				<br/>
 				<div class="container-login100-form-btn m-t-20">
-				    <button class="login100-form-btn" onclick="cadastrarEmpresa()">
+				    <button class="login100-form-btn" onclick="cadastrarEmpresa()" style="border-radius: 9px;">
 				        Enviar
 					</button>
                     <div class="container">
 						
 				    </div>
-					<button class="login100-form-btn" onclick="Limpar()">
+					<button class="login100-form-btn" onclick="Limpar()" style="border-radius: 9px;">
 				        Limpar
 				    </button>
 				</div>

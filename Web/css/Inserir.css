@@ -213,6 +213,8 @@ iframe {
   height:150px;
   font-family: OpenSans-Regular;
   color: #666666;
+  outline: none;
+  border: none;
 }
 
 

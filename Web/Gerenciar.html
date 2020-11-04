@@ -4,15 +4,15 @@
     <title>Estágios</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script>	
+	<script>
 		var resultado = window.location.href.split("&");
 		var uid =  resultado[1];
-		if(resultado[1] !== 'aENQQzRQdzU0bVFJWFUyQXBGRzdYVjNXbHFyMg==')
+		if(resultado[1] !== 'T21laUc3ek1tMVBHT2pWWlR1eDFETDV3Nlo0Mg==')
 		{
 			window.location.href = 'index.html';
 		}
 	</script>
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/icon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -22,13 +22,13 @@
 	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
@@ -42,7 +42,7 @@
 			<div class="wrap-login100">
 				<table border="1" style="width: 100%">
 					<tr>
-						<th> Empresa </th>  
+						<th> Empresa </th>
 						<th> Curso </th>
 						<th> Descrição </th>
 						<th> Requisitos </th>
@@ -50,17 +50,17 @@
 						<th> Link </th>
 						<th> Email </th>
 						<th> Data </th>
-						<th> Excluir </th>                            
-					</tr>                         
+						<th> Excluir </th>
+					</tr>
 					<tbody border="1" id="table_body" style="width: 100%;">
-						
-						
+
+
 					</tbody>
-				</table>             
+				</table>
 			</div>
 		</div>
-	</div> 
-    
+	</div>
+
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -96,16 +96,15 @@
         var refCadastro = firebase.database().ref("propostas");
         function Buscar(){
             refCadastro.on("child_added", snap=>{
-                var Empresa = snap.child("empresa").val();       
-                var Curso = snap.child("curso").val();       
+                var Empresa = snap.child("empresa").val();
+                var Curso = snap.child("curso").val();
                 var Descricao =snap.child("descrição").val();
-                var Requisitos =snap.child("requisitos").val();       
-                var Salario =snap.child("salário").val();        
-                var Link =snap.child("link").val();   
+                var Requisitos =snap.child("requisitos").val();
+                var Salario =snap.child("salário").val();
+                var Link =snap.child("link").val();
                 var Email =snap.child("email").val();
-                var Data =snap.child("data").val();           
-				var chave =String(snap.key);        				    
-                //Adiciona tudo em uma tabela
+                var Data =snap.child("data").val();
+				var chave =String(snap.key);
                 $('#table_body').append("<tr><td>"+ Empresa +"</td><td>"+ Curso + "</td><td>" + Descricao +"</td><td>" + Requisitos + "</td><td>" + Salario +"</td><td>"+ Link +"</td><td>" + Email + "</td><td>" + Data +"</td> <td><button class='btn' onclick='Excluir(value)' value='"+ chave +"'>X</button></td>  </tr>");
 			});
         }
