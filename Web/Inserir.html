@@ -4,11 +4,9 @@
     <title>Estágios</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script>
-		console.log(window.location.href);		
+	<script>		
 		var resultado = window.location.href.split("&");
 		var uid =  resultado[1];
-		alert (resultado[1]);
 		if(resultado[1] !== 'aENQQzRQdzU0bVFJWFUyQXBGRzdYVjNXbHFyMg==')
 		{
 			window.location.href = 'index.html';
@@ -34,17 +32,10 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/insert.css">
+	<link rel="stylesheet" type="text/css" href="css/Inserir.css">
 <!--===============================================================================================-->
 </head>
 <body>
-
-	<!--<div class="col-md-12 d-flex justify-content-center">
-			<button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Administrador</button>
-			<button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Inserir</button>
-			<button type="button" class="btn btn-outline-black waves-effect filter" data-rel="3">Excluir</button>
-		</div>
-	-->
 
 
 	<div class="limiter">
@@ -69,8 +60,6 @@
 						<option value="Publicidade">Publicidade</option>
 						<option value="Química">Química</option>
 					</select>
-					<span class="focus-input100-1"></span>
-					<span class="focus-input100-2"></span>
 				</div>
 				<br>
 					<label>Descrição</label>
@@ -194,7 +183,7 @@
             	alert("Proposta cadastrada com sucesso!");
 			}else
 			{
-				alert("É necessário preencher todos os campos")
+				alert("É necessário preencher todos os campos!")
 			}
         }
     </script>

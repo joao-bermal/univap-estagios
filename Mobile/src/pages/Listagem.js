@@ -25,8 +25,6 @@ export default function Listagem({ data }){
             onBackdropPress={toggleModal}
             backdropOpacity={0.6}
           >
-            {//filtrar, xzinho, melhorar modal, sair
-            }
             <StatusBar backgroundColor="#001c38" barStyle="light-content" translucent={true}/>
             <ScrollView style={styles.whiteModalContainer}>
               <View style={styles.closeButton}>

@@ -4,11 +4,9 @@
     <title>Estágios</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script>
-		console.log(window.location.href);		
+	<script>	
 		var resultado = window.location.href.split("&");
 		var uid =  resultado[1];
-		alert (resultado[1]);
 		if(resultado[1] !== 'aENQQzRQdzU0bVFJWFUyQXBGRzdYVjNXbHFyMg==')
 		{
 			window.location.href = 'index.html';
@@ -34,7 +32,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/Editar.css">
+	<link rel="stylesheet" type="text/css" href="css/Gerenciar.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
@@ -95,10 +93,7 @@
             measurementId: "G-YBTFVC6LM7"
         };
         firebase.initializeApp(firebaseConfig);
-		var vapo ="salve"
         var refCadastro = firebase.database().ref("propostas");
-		//var adaRef = firebase.database().ref('users/ada');
-		//		adaRef.remove() 
         function Buscar(){
             refCadastro.on("child_added", snap=>{
                 var Empresa = snap.child("empresa").val();       
@@ -112,18 +107,16 @@
 				var chave =String(snap.key);        				    
                 //Adiciona tudo em uma tabela
                 $('#table_body').append("<tr><td>"+ Empresa +"</td><td>"+ Curso + "</td><td>" + Descricao +"</td><td>" + Requisitos + "</td><td>" + Salario +"</td><td>"+ Link +"</td><td>" + Email + "</td><td>" + Data +"</td> <td><button class='btn' onclick='Excluir(value)' value='"+ chave +"'>X</button></td>  </tr>");
-				console.log(document.getElementById(chave).value);
 			});
-            alert("Propostas encontradas com sucesso!");
         }
         Buscar();
 
 		function Excluir(chavefire)
 		{
-			alert(chavefire);
 			String(chavefire);
 			refCadastro.child(chavefire).remove();
 			window.location.href = 'Administrador.html?uid&'+ uid;
+			alert("Os dados foram exluídos com sucesso!")
 		}
     </script>
 </body>

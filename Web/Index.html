@@ -24,7 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/Index.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -54,13 +54,6 @@
 				        Entrar
 				    </button>
                 </div>
-                <!--
-                <div class="container-login100-form-btn m-t-20">
-                    <button class="login100-form-btn" onclick="cadastrar()">
-				        Cadastrar
-				    </button>
-				</div>
-                -->
 			</div>
 		</div>
 	</div>
@@ -96,17 +89,6 @@
         measurementId: "G-YBTFVC6LM7"
     };
 	firebase.initializeApp(firebaseConfig);
-
-	function cadastrar(){
-		var auth = null;
-		firebase.auth().createUserWithEmailAndPassword(document.getElementById("email").value, document.getElementById("senha").value)
-		.then(function(user){
-			alert("Cadastrado com sucesso!");
-			auth = user;
-		}).catch(function(error){
-			alert("Falha ao cadastrar!");
-		});
-	}
 	
 	function login(){
 		var auth = null;

@@ -5,11 +5,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--Autenticação -->
-	<script>
-		console.log(window.location.href);		
+	<script>	
 		var resultado = window.location.href.split("&");
 		var uid =  resultado[1];
-		alert (resultado[1]);
 		if(resultado[1] !== 'aENQQzRQdzU0bVFJWFUyQXBGRzdYVjNXbHFyMg==')
 		{
 			window.location.href = 'index.html';
