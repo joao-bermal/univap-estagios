@@ -106,7 +106,7 @@
                 var Data =snap.child("data").val();
 				var chave =String(snap.key);
                 $('#table_body').append("<tr><td>"+ Empresa +"</td><td>"+ Curso + "</td><td>" + Descricao +"</td><td>" + Requisitos + "</td><td>" + Salario +"</td><td>"+ Link +"</td><td>" + Email + "</td><td>" + Data +"</td> <td><button class='btn' onclick='Excluir(value)' value='"+ chave +"'>X</button></td>  </tr>");
-				
+				console.log(snap.child("empresa").val());
 			});
         }
         Buscar();
