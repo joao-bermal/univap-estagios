@@ -7,10 +7,10 @@
 	<script>
 		var resultado = window.location.href.split("&");
 		var uid =  resultado[1];
-		if(resultado[1] !== 'T21laUc3ek1tMVBHT2pWWlR1eDFETDV3Nlo0Mg==')
-		{
-			window.location.href = 'index.html';
-		}
+		// if(resultado[1] !== 'T21laUc3ek1tMVBHT2pWWlR1eDFETDV3Nlo0Mg==')
+		// {
+		// 	window.location.href = 'index.html';
+		// }
 	</script>
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/icon.png"/>
@@ -106,6 +106,7 @@
                 var Data =snap.child("data").val();
 				var chave =String(snap.key);
                 $('#table_body').append("<tr><td>"+ Empresa +"</td><td>"+ Curso + "</td><td>" + Descricao +"</td><td>" + Requisitos + "</td><td>" + Salario +"</td><td>"+ Link +"</td><td>" + Email + "</td><td>" + Data +"</td> <td><button class='btn' onclick='Excluir(value)' value='"+ chave +"'>X</button></td>  </tr>");
+				console.log(snap.child("empresa").val());
 			});
         }
         Buscar();
