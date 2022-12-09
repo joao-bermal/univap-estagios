@@ -1,3 +1,18 @@
+.container{
+	padding: 50px;
+}
+
+.btn-azul-escuro{
+	width: 100%;
+    padding: 0 20px;
+    height: 50px;
+    background-color: #00488B;
+    font-weight: 600;
+    color: #FFF;
+    border: #00488B;
+    border-radius: 9px;
+}
+
 /*[ FONT SIZE ]
 ///////////////////////////////////////////////////////////
 */
